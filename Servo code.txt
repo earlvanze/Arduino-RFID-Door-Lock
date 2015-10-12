@@ -1,0 +1,14 @@
+#include <Servo.h>
+#define motorPin    9
+
+void rotateServo( int setDelay )
+{
+  setDelay *= 1000; // Sets delay in seconds
+  
+  lockMotor.attach(motorPin);
+  lockMotor.write(80);              // tell servo to go to 80-degree position
+  delay(setDelay);
+  lockMotor.write(0);           // tell servo to go to 0-degree position
+  delay(500);
+  lockMotor.detach();
+}
